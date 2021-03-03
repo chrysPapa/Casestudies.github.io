@@ -47,7 +47,7 @@
     position: absolute;
     width: 110px;
     height: 100%;
-    background: linear-gradient(to right, #919191,#5a5959);
+    background: linear-gradient(to right, #6e63ff,#719dd8);
     border-radius: 30px;
     transition: .5;
 }
@@ -76,7 +76,7 @@
     cursor: pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(to right, #919191,#5a5959);
+    background: linear-gradient(to right, #6e63ff,#719dd8);
     border: 0;
     outline: none;
     border-radius: 30px;
@@ -100,3 +100,37 @@ span{
 #register{
     left: 450px;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #777;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
+
+  .Title{
+    background-color: #777;
+    text-align:center;
+    border-bottom: 3px solid #111;
+  }
