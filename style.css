@@ -1,3 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  color: #111;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+	text-decoration: none;
+	float: right;
+  padding: 5px;
+  margin: 10px;
+  color: rgb(53, 53, 53);
+  width: 25px;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 100px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -133,4 +184,14 @@ ul {
     background-color: #777;
     text-align:center;
     border-bottom: 3px solid #111;
+  }
+
+  textarea{ 
+    width: 350px; 
+    min-width:350px; 
+    max-width:650px; 
+    height:300; 
+    min-height:300px;  
+    max-height:400px;
+    border:solid 2px black !important;    
   }
