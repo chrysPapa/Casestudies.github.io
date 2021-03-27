@@ -1,7 +1,7 @@
-PHP Warning:  PHP Startup: Unable to load dynamic library 'D:/Lukasz/Documents/CompSci 3 - science with a vengence/CSSD/Assignment 2/Casestudies.github.io/usbwebserver\\php\\ext\\php_curl.dll' - The specified module could not be found.\r\n in Unknown on line 0
-[Tue Mar 02 17:33:08.582353 2021] [mpm_winnt:notice] [pid 33872:tid 756] AH00455: Apache/2.4.29 (Win32) PHP/7.1.11 configured -- resuming normal operations
-[Tue Mar 02 17:33:08.582353 2021] [mpm_winnt:notice] [pid 33872:tid 756] AH00456: Server built: Nov  3 2017 01:01:54
-[Tue Mar 02 17:33:08.582353 2021] [core:notice] [pid 33872:tid 756] AH00094: Command line: 'D:\\Lukasz\\Documents\\CompSci 3 - science with a vengence\\CSSD\\Assignment 2\\Casestudies.github.io\\usbwebserver/apache2/bin/httpd_usbwv8.exe -d D:/Lukasz/Documents/CompSci 3 - science with a vengence/CSSD/Assignment 2/Casestudies.github.io/usbwebserver/apache2'
-[Tue Mar 02 17:33:08.591352 2021] [mpm_winnt:notice] [pid 33872:tid 756] AH00418: Parent: Created child process 34672
-PHP Warning:  PHP Startup: Unable to load dynamic library 'D:/Lukasz/Documents/CompSci 3 - science with a vengence/CSSD/Assignment 2/Casestudies.github.io/usbwebserver\\php\\ext\\php_curl.dll' - The specified module could not be found.\r\n in Unknown on line 0
-[Tue Mar 02 17:33:09.208999 2021] [mpm_winnt:notice] [pid 34672:tid 688] AH00354: Child: Starting 64 worker threads.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'F:/UNI/CSSD/Assignment/Casestudies.github.io/usbwebserver\\php\\ext\\php_curl.dll' - The specified module could not be found.\r\n in Unknown on line 0
+[Sat Mar 27 14:35:34.241844 2021] [mpm_winnt:notice] [pid 9220:tid 624] AH00455: Apache/2.4.29 (Win32) PHP/7.1.11 configured -- resuming normal operations
+[Sat Mar 27 14:35:34.241844 2021] [mpm_winnt:notice] [pid 9220:tid 624] AH00456: Server built: Nov  3 2017 01:01:54
+[Sat Mar 27 14:35:34.241844 2021] [core:notice] [pid 9220:tid 624] AH00094: Command line: 'F:\\UNI\\CSSD\\Assignment\\Casestudies.github.io\\usbwebserver/apache2/bin/httpd_usbwv8.exe -d F:/UNI/CSSD/Assignment/Casestudies.github.io/usbwebserver/apache2'
+[Sat Mar 27 14:35:34.254809 2021] [mpm_winnt:notice] [pid 9220:tid 624] AH00418: Parent: Created child process 14456
+PHP Warning:  PHP Startup: Unable to load dynamic library 'F:/UNI/CSSD/Assignment/Casestudies.github.io/usbwebserver\\php\\ext\\php_curl.dll' - The specified module could not be found.\r\n in Unknown on line 0
+[Sat Mar 27 14:35:35.732224 2021] [mpm_winnt:notice] [pid 14456:tid 684] AH00354: Child: Starting 64 worker threads.
