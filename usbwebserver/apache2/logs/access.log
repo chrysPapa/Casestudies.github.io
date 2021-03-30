@@ -649,3 +649,7 @@
 ::1 - - [30/Mar/2021:11:21:44 +0100] "GET /phpmyadmin/sql.php?server=1&db=mydb&table=customer&pos=0&ajax_request=true&ajax_page_request=true&_nocache=1617099704860969077 HTTP/1.1" 200 6745
 ::1 - - [30/Mar/2021:11:21:45 +0100] "GET /phpmyadmin/index.php?ajax_request=1&recent_table=1&no_debug=true&_nocache=1617099705178846372 HTTP/1.1" 200 1461
 ::1 - - [30/Mar/2021:11:30:02 +0100] "GET /phpmyadmin/db_structure.php?server=1&db=mydb&ajax_request=true&ajax_page_request=true&_nocache=1617100202770925968 HTTP/1.1" 200 5198
+::1 - - [30/Mar/2021:11:47:55 +0100] "POST /phpmyadmin/logout.php HTTP/1.1" 302 8093
+::1 - - [30/Mar/2021:11:47:55 +0100] "GET /phpmyadmin/index.php HTTP/1.1" 200 3388
+::1 - - [30/Mar/2021:11:47:55 +0100] "GET /phpmyadmin/phpmyadmin.css.php?nocache=4850588192ltr&server=1 HTTP/1.1" 200 20347
+::1 - - [30/Mar/2021:11:47:55 +0100] "GET /phpmyadmin/themes/pmahomme/img/logo_right.png HTTP/1.1" 200 4601
