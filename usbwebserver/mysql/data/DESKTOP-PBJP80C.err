@@ -90,3 +90,108 @@
 2021-03-27 14:35:34 15260 [Note] IPv6 is available.
 2021-03-27 14:35:34 15260 [Note]   - '::' resolves to '::';
 2021-03-27 14:35:34 15260 [Note] Server socket created on IP: '::'.
+2021-03-29 03:21:13 23864 [Note] Plugin 'FEDERATED' is disabled.
+2021-03-29 03:21:14 23864 [Note] InnoDB: Using atomics to ref count buffer pool pages
+2021-03-29 03:21:14 23864 [Note] InnoDB: The InnoDB memory heap is disabled
+2021-03-29 03:21:14 23864 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-03-29 03:21:14 23864 [Note] InnoDB: Memory barrier is not used
+2021-03-29 03:21:14 23864 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2021-03-29 03:21:14 23864 [Note] InnoDB: Not using CPU crc32 instructions
+2021-03-29 03:21:14 23864 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2021-03-29 03:21:14 23864 [Note] InnoDB: Completed initialization of buffer pool
+2021-03-29 03:21:14 23864 [Note] InnoDB: Highest supported file format is Barracuda.
+2021-03-29 03:21:14 23864 [Note] InnoDB: The log sequence numbers 1626134 and 1626134 in ibdata files do not match the log sequence number 1626696 in the ib_logfiles!
+2021-03-29 03:21:14 23864 [Note] InnoDB: Database was not shutdown normally!
+2021-03-29 03:21:14 23864 [Note] InnoDB: Starting crash recovery.
+2021-03-29 03:21:14 23864 [Note] InnoDB: Reading tablespace information from the .ibd files...
+2021-03-29 03:21:14 23864 [Note] InnoDB: Restoring possible half-written data pages 
+2021-03-29 03:21:14 23864 [Note] InnoDB: from the doublewrite buffer...
+2021-03-29 03:21:16 23864 [Note] InnoDB: 128 rollback segment(s) are active.
+2021-03-29 03:21:16 23864 [Note] InnoDB: Waiting for purge to start
+2021-03-29 03:21:16 23864 [Note] InnoDB: 5.6.34 started; log sequence number 1626696
+2021-03-29 03:21:16 23864 [Note] Server hostname (bind-address): '*'; port: 3306
+2021-03-29 03:21:16 23864 [Note] IPv6 is available.
+2021-03-29 03:21:16 23864 [Note]   - '::' resolves to '::';
+2021-03-29 03:21:16 23864 [Note] Server socket created on IP: '::'.
+2021-03-29 03:22:42 31776 [Note] Plugin 'FEDERATED' is disabled.
+2021-03-29 03:22:42 31776 [Note] InnoDB: Using atomics to ref count buffer pool pages
+2021-03-29 03:22:42 31776 [Note] InnoDB: The InnoDB memory heap is disabled
+2021-03-29 03:22:42 31776 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-03-29 03:22:42 31776 [Note] InnoDB: Memory barrier is not used
+2021-03-29 03:22:42 31776 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2021-03-29 03:22:42 31776 [Note] InnoDB: Not using CPU crc32 instructions
+2021-03-29 03:22:42 31776 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2021-03-29 03:22:42 31776 [Note] InnoDB: Completed initialization of buffer pool
+2021-03-29 03:22:42 31776 [ERROR] InnoDB: F:\UNI\CSSD\Assignment\Casestudies.github.io\usbwebserver\mysql\data\ibdata1 can't be opened in read-write mode
+2021-03-29 03:22:42 31776 [ERROR] InnoDB: The system tablespace must be writable!
+2021-03-29 03:22:42 31776 [ERROR] Plugin 'InnoDB' init function returned error.
+2021-03-29 03:22:42 31776 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2021-03-29 03:22:42 31776 [ERROR] Unknown/unsupported storage engine: InnoDB
+2021-03-29 03:22:42 31776 [ERROR] Aborting
+
+2021-03-29 03:22:42 31776 [Note] Binlog end
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'partition'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_DATAFILES'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_TABLESPACES'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN_COLS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_FIELDS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_COLUMNS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_INDEXES'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_TABLESTATS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_SYS_TABLES'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_METRICS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_CMPMEM'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_CMP'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_LOCKS'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'INNODB_TRX'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'BLACKHOLE'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'ARCHIVE'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'MRG_MYISAM'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'MyISAM'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'MEMORY'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'CSV'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'sha256_password'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'mysql_old_password'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'mysql_native_password'
+2021-03-29 03:22:42 31776 [Note] Shutting down plugin 'binlog'
+2021-03-29 03:22:43 31776 [Note] F:\UNI\CSSD\Assignment\Casestudies.github.io\usbwebserver\mysql\bin\mysqld_usbwv8.exe: Shutdown complete
+
+2021-03-30 04:10:52 15888 [Note] Plugin 'FEDERATED' is disabled.
+2021-03-30 04:10:53 15888 [Note] InnoDB: Using atomics to ref count buffer pool pages
+2021-03-30 04:10:53 15888 [Note] InnoDB: The InnoDB memory heap is disabled
+2021-03-30 04:10:53 15888 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-03-30 04:10:53 15888 [Note] InnoDB: Memory barrier is not used
+2021-03-30 04:10:53 15888 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2021-03-30 04:10:53 15888 [Note] InnoDB: Not using CPU crc32 instructions
+2021-03-30 04:10:53 15888 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2021-03-30 04:10:53 15888 [Note] InnoDB: Completed initialization of buffer pool
+2021-03-30 04:10:53 15888 [Note] InnoDB: Highest supported file format is Barracuda.
+2021-03-30 04:10:53 15888 [Note] InnoDB: The log sequence numbers 1626134 and 1626134 in ibdata files do not match the log sequence number 1626706 in the ib_logfiles!
+2021-03-30 04:10:53 15888 [Note] InnoDB: Database was not shutdown normally!
+2021-03-30 04:10:53 15888 [Note] InnoDB: Starting crash recovery.
+2021-03-30 04:10:53 15888 [Note] InnoDB: Reading tablespace information from the .ibd files...
+2021-03-30 04:10:53 15888 [Note] InnoDB: Restoring possible half-written data pages 
+2021-03-30 04:10:53 15888 [Note] InnoDB: from the doublewrite buffer...
+2021-03-30 04:10:55 15888 [Note] InnoDB: 128 rollback segment(s) are active.
+2021-03-30 04:10:55 15888 [Note] InnoDB: Waiting for purge to start
+2021-03-30 04:10:55 15888 [Note] InnoDB: 5.6.34 started; log sequence number 1626706
+2021-03-30 04:10:56 15888 [Note] Server hostname (bind-address): '*'; port: 3306
+2021-03-30 04:10:56 15888 [Note] IPv6 is available.
+2021-03-30 04:10:56 15888 [Note]   - '::' resolves to '::';
+2021-03-30 04:10:56 15888 [Note] Server socket created on IP: '::'.
