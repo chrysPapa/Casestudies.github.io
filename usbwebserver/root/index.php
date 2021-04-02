@@ -17,7 +17,7 @@
             </div>
             <p style="text-align:center">Hello! please enter your credentials.</p>
         <form id="login" class="input-group">
-           <input type="text" class="input-field" placeholder="Username/E-mail" required>
+           <input id="Uname" type="text" class="input-field" placeholder="Username/E-mail" required>
             <input type="text" class="input-field" placeholder="password" required>
             <br>
             <br>
@@ -42,6 +42,20 @@
         </form>
         </div>
     </div>
+
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "usbw";
+        $dbname = "mydb";
+
+        $classname = 'review-text';
+        $dom = new DOMDocument;
+        $dom->validateOnParse = true;
+        $dom->load('index.php');
+        $element = $dom->getElementById('Uname');
+        $results = $xpath->query(div[@class="review-text"]);
+    ?>
 
     <script>
         var x= document.getElementById("login");
