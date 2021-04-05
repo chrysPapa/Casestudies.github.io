@@ -67,7 +67,7 @@ a {
 
 .form-box{
     width: 380px;
-    height: 380px;
+    height: 430px;
     position: relative;
     margin: 6% auto;
     background:#fff;
@@ -187,11 +187,63 @@ ul {
   }
 
   textarea{ 
-    width: 350px; 
-    min-width:350px; 
-    max-width:650px; 
-    height:300; 
-    min-height:300px;  
-    max-height:400px;
+    width: 250px; 
+    min-width:250px; 
+    max-width:250px; 
+    height:70px; 
+    min-height:70px;  
+    max-height:70px;
     border:solid 2px black !important;    
+  }
+
+  .quotes{
+    background-color: #777;
+    width: 200px;
+    height: auto;
+    border: 3px solid rgb(49, 13, 207);
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .request{
+    background-color: lightgrey;
+    width: 300px;
+    height: auto;
+    border: 3px solid rgb(49, 13, 207);
+    padding: 30px;
+    margin: 10px;
+  }
+
+  .collapsible {
+    width: 85;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #6e63ff,#719dd8);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .content {
+    padding: 10px 30px;
+    display: none;
+    overflow: hidden;
+    background-color: lightgrey;
+  }
+
+  #my-textarea-remaining-chars{
+    color:#555;
+    font-size:14px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
   }

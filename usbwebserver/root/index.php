@@ -17,11 +17,14 @@
             </div>
             <p style="text-align:center">Hello! please enter your credentials.</p>
         <form id="login" class="input-group">
-           <input name='uname' type="text" class="input-field" placeholder="Username/E-mail" required>
+           <input type="text" class="input-field" placeholder="Username/E-mail" required>
             <input type="text" class="input-field" placeholder="password" required>
             <br>
             <br>
-            <p style="float: left; width: 130px"><button type="submit" class="submit-btn" onclick="window.open('customer.html','_blank','resizable=yes')">Customer</button></p>
+            <!--BUTTON TO BE USED FOR LOGIN-->
+            <button class="submit-btn" type="submit" name="login">Login</button><br>
+
+            <p style="float: left; width: 130px"><button type="submit" class="submit-btn" onclick="window.open('customer.php','_blank','resizable=yes')">Customer</button></p>
             <p style ="float: none; width: 130px"></p><button type="submit" class="submit-btn" onclick="window.open('consultant.html','_blank','resizable=yes')">Consultant</button>
             <br>
             <button type="submit" class="submit-btn" onclick="window.open('manager.html','_blank','resizable=yes')">Manager</button></p>
@@ -42,45 +45,6 @@
         </form>
         </div>
     </div>
-
-    <?php
-
-		//--------EXAMPLE SERVER CONNECTION---------
-        $servername = "localhost";
-        $username = "root";
-        $password = "usbw";
-        $dbname = "mydb";
-
-		$con = mysqli_connect($servername, $username, $password);
-		if(!$con){
-			die('Connection failed: ' . mysqli_error());
-		}
-		
-		//echo 'Connected Successfully'; //DEBUG
-
-		//---------EXAMPLE DATABASE READ-----------
-		mysqli_select_db($con, "mydb.customer");
-		$result = mysqli_query($con, "SELECT * FROM mydb.customer"); 
-		while($row = mysqli_fetch_array($result)){
-		//This returns html code (to see output use inspect in chrome)
-			echo $row['username'] . " " .  $row['email'] . " " . $row['password'];	
-			echo "<br>";
-		}
-
-
-		mysqli_close($con);
-
-        //$classname = 'review-text';
-        //$dom = new DOMDocument;
-        //$dom->validateOnParse = true;
-        //$dom->load('index.php');
-        //$element = $dom->getElementById('Uname');
-        //$results = $xpath->query(div[@class="review-text"]);
-
-
-		$element->setAttribute('Test');
-		$txt = $html->saveHTML();
-    ?>
 
     <script>
         var x= document.getElementById("login");
