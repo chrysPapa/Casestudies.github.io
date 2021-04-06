@@ -54,7 +54,10 @@
                                 echo "<h4>Your Request:</h4>";
                                 echo "<p>" . $row['userMessage'] . "</p><br>";
                                 echo "<h4>Consultant Response:</h4>";
-                                echo "<p>" . $row['reply'] . "</p>";
+                                echo "<p>" . $row['reply'] . "</p><br>";
+                                echo "<h4>Product Information:</h4>";
+                                echo "<p>Original Price: £" . $pInfo['originalPrice'] . "</p><br>";
+                                echo "<p>Original Price: £" . $pInfo['discountedPrice'] . "</p><br>";
                                 echo "</div><br><br>";
                             }
                         }
