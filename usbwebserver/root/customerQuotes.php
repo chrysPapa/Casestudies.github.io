@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="/css/style.css">
 <html>
@@ -25,7 +28,7 @@
                 <div class="request">
                     <h3> Product List</h3><br>
                     
-                    <select  name="products" id="prodacts">
+                    <select  name="products" id="prodacts" form="newQuote">
                         <?php
                             $servername = "localhost";
                             $username = "root";
@@ -41,7 +44,7 @@
 		                    $products = mysqli_query($con, "SELECT * FROM mydb.products"); 
                             
                             while($row = mysqli_fetch_array($products)){
-                                echo "<option value='volvo'>" . $row['name'] . "</option>";
+                                echo "<option value=" . $row['productID'] . ">" . $row['name'] . "</option>";
                             }
 
                             $con->close();
@@ -49,7 +52,7 @@
                         </select><br><br> 
                         <button type="submit" class="collapsible">Continue</button>
                         <div class="content">
-                        <form method="post">
+                        <form method="post" id="newQuote">
                             <textarea name='userMess' id="my-textarea"  maxlength="150"></textarea>
                             <div id="my-textarea-remaining-chars">150 characters remaining</div>
                             <input type="submit" value="Request Quote" class="submit-btn">
@@ -61,35 +64,39 @@
             
         </div>
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "usbw";
-        $dbname = "mydb";
+            $servername = "localhost";
+            $username = "root";
+            $password = "usbw";
+            $dbname = "mydb";
 
-        $con = mysqli_connect($servername, $username, $password, $dbname);
-        if(!$con){
-            die('Connection failed: ' . mysqli_error());
-        }
-        //get data for database insertion
-        $userMessage = $_POST['userMess'];
-        //use product name from selection to get the product ID
-        $productName = 
-        //access the customer ID from the user file and then get the associated consultantID from the database
+            $con = mysqli_connect($servername, $username, $password, $dbname);
+            if(!$con){
+                die('Connection failed: ' . mysqli_error());
+            }
+            //get data for database insertion
+            $userMessage = $_POST['userMess'];
+            
+            //access the customer ID from the session and then get the associated consultantID from the database
+            $id = $_SESSION["id"];
 
-        #mysqli_select_db($con, "mydb.quote");
-        $sql = $con->prepare("INSERT INTO `quote` (`customerID`, `consultantID`, `productID`, `userMessage`) 
-                VALUES (1, 1 ,2, ?)");
-        $sql->bind_param("s", $userMessage);
-        $sql->execute();
-        $sql->close();
-        #if ($con->query($sql) === TRUE) {
-        #    echo "New record created successfully";
-        #} else {
-        #    echo "Error: " . $sql . "<br>" . $con->error;
-        #    echo "<p>Quote has not been made</P>";
-        #}
-        $con->close();
-    ?>
+            mysqli_select_db($con, "mydb.customer");
+            $result = mysqli_query($con, "SELECT * FROM mydb.customer WHERE customerID=$id"); 
+            $row = mysqli_fetch_array($result);
+            $consultant = $row['consultantID'];
+            
+            //get product ID
+            $productID = $_POST['products'];
+
+            //echo $consultant . ", ". $id . ", ". $productID;  #DEGBUG
+
+            $sql = $con->prepare("INSERT INTO `quote` (`customerID`, `consultantID`, `productID`, `userMessage`) 
+                    VALUES (?, ? ,?, ?)");
+            $sql->bind_param("iiis", $id, $consultant, $productID, $userMessage);
+            $sql->execute();
+
+            $sql->close();
+            $con->close();
+        ?>
     </body>   
 
     <script>

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="/css/style.css">
 <html>
@@ -24,30 +27,38 @@
                 <h3> Quotes</h3>
                 <div class="request">
                     <p>Quotes Requested</p><br>
-                                        
-                    <button type="button" class="collapsible">Product 1</button>
-                    <div class="content">
-                      <h4>Your Request:</h4>
-                      <p>Hello, I would like to have more information on how this product works and we can arange a delivery</p><br>
-                      <h4>Consultant Response:</h4>
-                      <p>None yet</p>
-                    </div><br><br>
-                   
-                    <button type="button" class="collapsible">Product 2</button>
-                    <div class="content">
-                      <h4>Your Request:</h4>
-                      <p>Hello, I would like to have more information on how this product works and we can arange a delivery</p><br>
-                      <h4>Consultant Response:</h4>
-                      <p>None yet</p>
-                    </div><br><br>
+                    
+                    <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "usbw";
+                        $dbname = "mydb";
+            
+                        $con = mysqli_connect($servername, $username, $password, $dbname);
+                        if(!$con){
+                            die('Connection failed: ' . mysqli_error());
+                        }
 
-                    <button type="button" class="collapsible">Product 3</button>
-                    <div class="content">
-                      <h4>Your Request:</h4>
-                      <p>Hello, I would like to have more information on how this product works and we can arange a delivery</p><br>
-                      <h4>Consultant Response:</h4>
-                      <p>None yet</p>
-                    </div><br><br>
+                        $id = $_SESSION["id"];
+                        echo "<p>ID: " . $id . "</p>";
+
+                        mysqli_select_db($con, "mydb.quote");
+		                $result = mysqli_query($con, "SELECT * FROM mydb.quote"); 
+		                while($row = mysqli_fetch_array($result)){
+                            $query = "SELECT * FROM mydb.products WHERE productID=" . $row['productID'] . " AND " . $row['customerID'] . " = " . $id;
+                            $product = mysqli_query($con, $query); 
+                            $pInfo = mysqli_fetch_array($product);
+                            if($pInfo['productID'] == $row['productID']){
+                                echo "<button type='button' class='collapsible'>" . $pInfo['name'] . "</button>";
+                                echo "<div class='content'>";
+                                echo "<h4>Your Request:</h4>";
+                                echo "<p>" . $row['userMessage'] . "</p><br>";
+                                echo "<h4>Consultant Response:</h4>";
+                                echo "<p>" . $row['reply'] . "</p>";
+                                echo "</div><br><br>";
+                            }
+                        }
+                    ?>
                 </div>
         </div>
 

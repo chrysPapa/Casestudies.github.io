@@ -30,6 +30,12 @@
            
         </div>
 
+        <?php
+            $id = $_GET["id"];
+            echo "<p>" . $id . "</p>";
+            //echo "<button style="width: 170px;" type="submit" class="submit-btn" onclick="window.open('customerQuotes.php','_self','resizable=yes')">Quotes</button> <br>"
+        ?>
+
     </body>
 
     <script>
