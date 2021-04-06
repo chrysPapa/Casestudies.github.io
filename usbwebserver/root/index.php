@@ -47,7 +47,10 @@
                         if(strcmp($row['password'], $password) == 0){  
                             //http://localhost:8080/customer.php
                             $id = $row['customerID'];
+                            $uName = $row['username'];
+                            echo $uName;
                             $_SESSION['id'] = $id;
+                            $_SESSION['username'] = $uName;
                             header("Location: http://localhost:8080/customer.php?id=".$id, true, 301);
                             exit();
                         }

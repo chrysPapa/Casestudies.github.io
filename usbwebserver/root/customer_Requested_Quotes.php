@@ -40,7 +40,6 @@
                         }
 
                         $id = $_SESSION["id"];
-                        echo "<p>ID: " . $id . "</p>";
 
                         mysqli_select_db($con, "mydb.quote");
 		                $result = mysqli_query($con, "SELECT * FROM mydb.quote"); 

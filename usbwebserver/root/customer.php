@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="/css/style.css">
 <html>
@@ -19,7 +22,12 @@
                 <li><a href="customer_Requested_Quotes.php">Requested Quotes</a></li>
             </ul>
             <br><br>
-            
+            <?php
+                $id = $_GET["id"];
+                $name = $_GET["username"];
+                echo "<h4>User: " . $name . "</h4>";
+                //echo "<button style="width: 170px;" type="submit" class="submit-btn" onclick="window.open('customerQuotes.php','_self','resizable=yes')">Quotes</button> <br>"
+            ?>
             <div align = "center">
                 <h2 style="color: aliceblue;">Welcome to the Customer page</h2><br><br><br>
                 <p style="color:aliceblue">Here you can see our prodacts request quotes view your reuqsted quotes and view the response from our Consultant team</p><br>
@@ -30,11 +38,7 @@
            
         </div>
 
-        <?php
-            $id = $_GET["id"];
-            echo "<p>" . $id . "</p>";
-            //echo "<button style="width: 170px;" type="submit" class="submit-btn" onclick="window.open('customerQuotes.php','_self','resizable=yes')">Quotes</button> <br>"
-        ?>
+        
 
     </body>
 
