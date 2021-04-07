@@ -12,12 +12,12 @@
         <div class="hero">
             <h1 class="Title">ABC Energy Website</h1>
             <a class="button" href="#" onclick="close_window(); return false">
-                <img src="logout.png">
+                <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
                 
             </a>
             <ul class="nav-inline">
-                <li><a href="consultant.html">Home</a></li>
+                <li><a href="consultant.php">Home</a></li>
                 <li><a href="#">Customer Quotes</a></li>
             </ul>
             <br><br>
@@ -45,8 +45,8 @@
                             while($row = mysqli_fetch_array($result)){
                                 
                                 if(empty($row['reply'])){
-                                    echo "<form method='post' id='newReply'>";
-                                    echo "<button type='button' class='collapsible'>Request " . $count . "</button>";
+                                    echo "<form method='post' id='replyForm'>";
+                                    echo "<button type='button' name='btn' class='collapsible'>Request " . $count . "</button>";
                                     echo "<div class='content'>";
                                     echo "<h4 name='custID'>Customer ID: " . $row['customerID'] . "</h4>";
                                     echo "<h4 name='prodID'>Product ID: " . $row['productID'] . "</h4>";
@@ -55,8 +55,19 @@
                                     echo "<h4>Type your repsonse</h4>";
                                     echo "<textarea name='newReply' id='my-textarea'  maxlength='150'></textarea>";
                                     echo "<div id='my-textarea-remaining-chars'>150 characters remaining</div>";
-                                    echo "<input type='submit' value='Respond' class='submit-btn'></div><br><br>";
+                                    echo "<input type='submit' name=" . $count . " onClick='window.location.reload()' value='Respond' class='submit-btn'></div><br><br>";
                                     echo "</form>";
+                                    //Commit Variables to session
+                                    //create array of form data
+                                    $formData = array($row['customerID'], $row['productID']);
+                                    if(!isset($_SESSION['form' . $count])){
+                                        $_SESSION['form' . $count] = $formData;
+                                    }
+                                    else
+                                    {
+                                        $_SESSION['form' . $count] = $formData;
+                                    }
+
                                 }else{
                                     echo "<button type='button' class='collapsible'>Request " . $count . "</button>";
                                     echo "<div class='content'>";
@@ -70,15 +81,40 @@
                             }
 
                             //UPDATE quote SET reply = "hello there" WHERE customerID = 2 AND consultantID = 2 AND productID = 5
-                            $replyMess = $_POST['newReply'];
-                            $customerID = $_POST['custID'];
-                            $productID = $_POST['prodID'];
-                            echo $replyMess . " | " . $customerID . " | " . $productID;
-                            $sql = $con->prepare("UPDATE quote SET reply = ? WHERE customerID = ? AND consultantID = ? AND productID = ?");
-                            $sql->bind_param("siii", $replyMess, $customerID, $id, $productID);
-                            $sql->execute();
+                            
 
-                            $sql->close();
+                            mysqli_select_db($con, "mydb.quote");
+
+                            $formID;
+                            //getting form ID
+                            foreach($_POST as $name => $content) { 
+                                if($content == "Respond"){
+                                    $formID = $name;
+                                }
+                                #echo "The HTML name: $name <br>";
+                                #echo "The content of it: $content <br>";
+                            }
+
+                            //echo $formID . "<br>";  #DEBUG
+
+                            $data = $_SESSION['form' . $formID];
+                            //echo $data[0] . " , " . $data[1] . "<br>";  #DEBUG
+                            //Check if text box has something in it
+                            //if yes update table
+                            $replyMess = $_POST['newReply'];
+                            //echo $replyMess;  #DEBUG
+                            //if(!strlen(trim($replyMess))){
+                                #echo $replyMess;
+                                #echo $data[0] . " , " . $data[1] . "<br>";
+                                $sql = $con->prepare("UPDATE quote SET reply = ? WHERE customerID = ? AND consultantID = ? AND productID = ?");
+                                $sql->bind_param("siii", $replyMess, $data[0], $id, $data[1]);
+                                $sql->execute();
+
+                                $sql->close();
+                            //}else{
+                                //echo "<p>Please type a reply into the box before submitting</p>";
+                            //}
+
                             $con->close();
                         ?>
 

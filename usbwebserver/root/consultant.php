@@ -9,7 +9,7 @@
         <div class="hero">
             <h1 class="Title">ABC Energy Website</h1>
             <a class="button" href="#" onclick="close_window(); return false">
-                <img src="logout.png">
+                <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
             </a>
             <ul class="nav-inline">

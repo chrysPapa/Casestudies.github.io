@@ -12,13 +12,13 @@
         <div class="hero">
             <h1 class="Title">ABC Energy Website</h1>
             <a class="button" href="#" onclick="close_window(); return false">
-                <img src="logout.png">
+                <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
                 
             </a>
             <ul class="nav-inline">
-                <li><a href="customer.html">Home</a></li>
-                <li><a href="customer_Quotes.html">Quotes</a></li>
+                <li><a href="customer.php">Home</a></li>
+                <li><a href="customerQuotes.php">Quotes</a></li>
                 <li><a href="#">Requested Quotes</a></li>
             </ul>
             <br><br>

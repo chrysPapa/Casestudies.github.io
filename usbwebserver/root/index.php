@@ -43,15 +43,14 @@
 		        $result = mysqli_query($con, "SELECT * FROM mydb.customer"); 
 		        while($row = mysqli_fetch_array($result)){
                     if(strcmp($row['username'], $username) == 0){   //If you find the customer
-                        echo $row['username'] . " " .  $row['email'] . " " . $row['password'] . " " . $row['customerID'];	
+                        echo $row['username'] . " " .  $row['email'] . " " . $row['password'] . " " . $row['customerID'];	#DEBUG
                         if(strcmp($row['password'], $password) == 0){  
                             //http://localhost:8080/customer.php
                             $id = $row['customerID'];
                             $uName = $row['username'];
-                            echo $uName;
                             $_SESSION['id'] = $id;
                             $_SESSION['username'] = $uName;
-                            header("Location: http://localhost:8080/customer.php?id=".$id, true, 301);
+                            header("Location: http://localhost:8080/customer.php", true, 301);
                             exit();
                         }
                         else{
@@ -67,11 +66,13 @@
 		        $result = mysqli_query($con, "SELECT * FROM mydb.consultant"); 
 		        while($row = mysqli_fetch_array($result)){
                     if(strcmp($row['username'], $username) == 0){   //If you find the customer
-                        echo $row['username'] . " " .  $row['email'] . " " . $row['password'];	
+                        echo $row['username'] . " " .  $row['email'] . " " . $row['password'];	#DEBUG
                         if(strcmp($row['password'], $password) == 0){  
                             $id = $row['consultantID'];
+                            $uName = $row['username'];
                             $_SESSION['id'] = $id;
-                            header("Location: http://localhost:8080/consultant.html?id=".$id, true, 301);
+                            $_SESSION['username'] = $uName;
+                            header("Location: http://localhost:8080/consultant.php", true, 301);
                             exit();
                         }
                         else{
