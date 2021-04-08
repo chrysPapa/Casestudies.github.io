@@ -14,8 +14,8 @@
             <a class="button" href="http://localhost:8080/" onclick="close_window();">
                 <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
-                
             </a>
+            
             <ul class="nav-inline">
                 <li><a href="consultant.php">Home</a></li>
                 <li><a href="#">Customer Quotes</a></li>
