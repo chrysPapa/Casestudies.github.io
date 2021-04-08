@@ -19,7 +19,7 @@
             <ul class="nav-inline">
                 <li><a href="consultant.php">Home</a></li>
                 <li><a href="#">Customer Quotes</a></li>
-                <?php
+                <?php   
                     $name = $_SESSION["username"];
                     $id = $_SESSION["id"];
                     echo "<div align='right'>";
@@ -35,6 +35,43 @@
                 <h3 style="color: aliceblue;"> Quotes</h3>
                 <div class="request">
                     <div id="requests">
+                        <div align='right'>
+                            <p>Filter by customer</p>
+                            <form method='post' form="showQuotes">
+                            <select  name="customers" id="custID">
+                                <?php
+                                    $servername = "localhost";
+                                    $username = "root";
+                                    $password = "usbw";
+                                    $dbname = "mydb";
+                    
+                                    $con = mysqli_connect($servername, $username, $password);
+                                    if(!$con){
+                                        die('Connection failed: ' . mysqli_error());
+                                    }
+
+                                    #$customerID = $_POST['customers'];
+                                    $id = $_SESSION['id'];
+                                    #echo $customerID . " , " . $id;
+
+                                    mysqli_select_db($con, "mydb.quote");
+                                    $query = "SELECT * from mydb.quote WHERE consultantID = " . $id . " group by customerID";
+		                            $customers = mysqli_query($con, $query); 
+                                
+                                    while($row = mysqli_fetch_array($customers)){
+                                        $query2 = "SELECT * from mydb.customer WHERE customerID = " . $row['customerID'];
+                                        $customerDetails = mysqli_query($con, $query2); 
+                                        while($Details = mysqli_fetch_array($customerDetails)){
+                                            echo "<option value=" . $row['customerID'] . ">ID: " . $row['customerID'] . " " . $Details['username'] . "</option>";
+                                        }
+                                    
+                                    }
+                                    $con->close();
+                                ?>
+
+                            </select>
+                            <br><br>
+                        </div>
                         <?php
                             $servername = "localhost";
                             $username = "root";
@@ -126,22 +163,9 @@
 
                             $con->close();
                         ?>
-
-                        <!--
-                        <button type="button" class="collapsible">Request 1</button>
-                        <div class="content">
-                            <h4>Customer ID: PHP NAME</h4>
-                            <h4>PHP NAME Request:</h4>
-                            <p>Hello, I would like to have more information on how this product works and we can arange a delivery</p><br>
-
-                            <h4>Type your repsonse</h4>
-                            
-                            <textarea id="my-textarea"  maxlength="150"></textarea>
-                            <div id="my-textarea-remaining-chars">150 characters remaining</div>
-                            <input onClick="window.location.reload()" type="submit" value="Response" class="submit-btn">
-                            -->
+                        </form>
                     </div>
-                        
+                    
                 </div>
             </div>
         </div>

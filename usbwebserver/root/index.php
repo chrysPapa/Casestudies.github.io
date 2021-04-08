@@ -23,7 +23,7 @@
             <button class="submit-btn" type="submit" name="login">Login</button><br>
             <!--use login form-->
             <?php
-                session_start();
+                session_start();    #Allows use of session storage
                 $servername = "localhost";
                 $username = "root";
                 $password = "usbw";
@@ -43,7 +43,7 @@
                     if(strcmp($row['username'], $username) == 0){   //If you find the customer
                         echo $row['username'] . " " .  $row['email'] . " " . $row['password'] . " " . $row['customerID'];	#DEBUG
                         if(strcmp($row['password'], $password) == 0){  
-                            //http://localhost:8080/customer.php
+                            
                             $id = $row['customerID'];
                             $uName = $row['username'];
                             $_SESSION['id'] = $id;
