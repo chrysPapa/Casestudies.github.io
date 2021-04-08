@@ -11,7 +11,7 @@
     <body>
         <div class="hero">
             <h1 class="Title">ABC Energy Website</h1>
-            <a class="button" href="#" onclick="close_window(); return false">
+            <a class="button" href="http://localhost:8080/" onclick="close_window();">
                 <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
                 
@@ -19,11 +19,20 @@
             <ul class="nav-inline">
                 <li><a href="consultant.php">Home</a></li>
                 <li><a href="#">Customer Quotes</a></li>
+                <?php
+                    $name = $_SESSION["username"];
+                    $id = $_SESSION["id"];
+                    echo "<div align='right'>";
+                    echo "<p>Name: " . $name . "</p>";
+                    echo "<p>ID: " . $id . "</p>";
+                    echo "</div>";
+                ?>
             </ul>
             <br><br>
-            <h2 style="text-align: center;">Quote Requests quotes from users</h2>
+            <h2 style="text-align: center; color: aliceblue;">Customer Requests</h2>
             <div align = "center"><br>
-                <h3> Quotes</h3>
+                <p style="color: aliceblue;">Bellow you can find all the requestes from the customers waiting a response.</p><br><br>
+                <h3 style="color: aliceblue;"> Quotes</h3>
                 <div class="request">
                     <div id="requests">
                         <?php

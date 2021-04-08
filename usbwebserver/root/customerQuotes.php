@@ -11,7 +11,7 @@
     <body>
         <div class="hero">
             <h1 class="Title">ABC Energy Website</h1>
-            <a class="button" href="#" onclick="close_window(); return false">
+            <a class="button" href="http://localhost:8080/" onclick="close_window();">
                 <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
                 
@@ -20,11 +20,21 @@
                 <li><a href="customer.php">Home</a></li>
                 <li><a href="#">Quotes</a></li>
                 <li><a href="customer_Requested_Quotes.php">Requested Quotes</a></li>
+                <?php
+                    $name = $_SESSION["username"];
+                    $id = $_SESSION["id"];
+                    echo "<div align='right'>";
+                    echo "<p>Name: " . $name . "</p>";
+                    echo "<p>ID: " . $id . "</p>";
+                    echo "</div>";
+                ?>
             </ul>
             <br><br>
-            <h2 style="text-align: center;">Welcome to the Custmer product quote panel</h2>
+            <h2 style="text-align: center; color: aliceblue;">Welcome to the Custmer product quote panel</h2>
+           
             <div align = "center"><br>
-
+                <p style="color: aliceblue;">In this page you can select your desire product and create a quote for one of our consultants to evaluate and response back.</p><br>
+                <p style="color: aliceblue;">You can view your request and our consultant replies on the Requested Quotes panel.</p><br><br>
                 <div class="request">
                     <h3> Product List</h3><br>
                     

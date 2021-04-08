@@ -11,7 +11,7 @@
     <body>
         <div class="hero">
             <h1 class="Title">ABC Energy Website</h1>
-            <a class="button" href="#" onclick="close_window(); return false">
+            <a class="button" href="http://localhost:8080/" onclick="close_window();">
                 <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
                 
@@ -20,11 +20,20 @@
                 <li><a href="customer.php">Home</a></li>
                 <li><a href="customerQuotes.php">Quotes</a></li>
                 <li><a href="#">Requested Quotes</a></li>
+                <?php
+                    $name = $_SESSION["username"];
+                    $id = $_SESSION["id"];
+                    echo "<div align='right'>";
+                    echo "<p>Name: " . $name . "</p>";
+                    echo "<p>ID: " . $id . "</p>";
+                    echo "</div>";
+                ?>
             </ul>
             <br><br>
-            <h2 style="text-align: center;">Welcome to Request quotes Customer panel</h2>
-            <div align = "center"><br>
-                <h3> Quotes</h3>
+            <h2 style="text-align: center;  color: aliceblue;">Welcome to Request quotes Customer panel</h2>
+            <div align = "center"><br><br>
+                <p style="color: aliceblue;">In this page you can find below all your requests and our consultant replies</p><br>
+                <h3 style="color: aliceblue;"> Quotes</h3><br><br>
                 <div class="request">
                     <p>Quotes Requested</p><br>
                     
@@ -52,12 +61,20 @@
                                 echo "<div class='content'>";
                                 echo "<h4>Your Request:</h4>";
                                 echo "<p>" . $row['userMessage'] . "</p><br>";
-                                echo "<h4>Consultant Response:</h4>";
-                                echo "<p>" . $row['reply'] . "</p><br>";
-                                echo "<h4>Product Information:</h4>";
-                                echo "<p>Original Price: £" . $pInfo['originalPrice'] . "</p><br>";
-                                echo "<p>Original Price: £" . $pInfo['discountedPrice'] . "</p><br>";
-                                echo "</div><br><br>";
+                                if(empty($row['reply'])){
+                                    echo "<h4>Consultant Response:</h4>";
+                                    echo "<p>Your assigned consultant hasn't responded yet, but will do so ASAP.</p>";
+                                    echo "<p>Thank you for your patience</p><br>";
+                                    echo "</div><br><br>";
+                                }
+                                else{
+                                    echo "<h4>Consultant Response:</h4>";
+                                    echo "<p>" . $row['reply'] . "</p><br>";
+                                    echo "<h4>Product Information:</h4>";
+                                    echo "<p>Original Price: £" . $pInfo['originalPrice'] . "</p><br>";
+                                    echo "<p>Original Price: £" . $pInfo['discountedPrice'] . "</p><br>";
+                                    echo "</div><br><br>";
+                                }
                             }
                         }
                     ?>

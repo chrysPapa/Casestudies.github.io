@@ -11,7 +11,7 @@
     <body>
         <div class="hero">
             <h1 class="Title">ABC Energy Website</h1>
-            <a class="button" href="#" onclick="close_window(); return false">
+            <a class="button" href="http://localhost:8080/" onclick="close_window();">
                 <img src="/images/logout.png">
                 <div class="logout">LOGOUT</div>
                 
@@ -37,7 +37,7 @@
                 <button style="width: 170px;" type="submit" class="submit-btn" onclick="window.open('customerQuotes.php','_self','resizable=yes')">Quotes</button> <br>
                 <button  type="submit" class="submit-btn" onclick="window.open('customer_Requested_Quotes.php','_self','resizable=yes')">Requested Quotes</button>
             </div>
-           
+            
         </div>
 
         

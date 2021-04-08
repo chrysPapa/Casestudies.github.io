@@ -57,12 +57,11 @@ a {
 }
 
 .hero{
-    height: 100%;
+    height: 175%;
     width: 100%;
     background-color: rgb(53, 53, 53);
     background-size: cover;
-    position: absolute;
-    
+    position:absolute;
 }
 
 .form-box{
@@ -76,31 +75,13 @@ a {
 }
 
 .button-box{
-    width: 220px;
+    text-align: center;
+    width: 175px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px #ff61241f;
-    border-radius: 30px;
-}
-
-.toggle-btn{
-    padding: 10px 30px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-
-#btn{
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 110px;
-    height: 100%;
-    background: linear-gradient(to right, #6e63ff,#719dd8);
-    border-radius: 30px;
-    transition: .5;
+    box-shadow: 0 0 6px 9px #719dd8;
+    background-color: #719dd8;
+    border-radius: 10px;
 }
 
 .input-group{
