@@ -38,39 +38,49 @@
                         <div align='right'>
                             <p>Filter by customer</p>
                             <form method='post' form="showQuotes">
-                            <select  name="customers" id="custID">
-                                <?php
-                                    $servername = "localhost";
-                                    $username = "root";
-                                    $password = "usbw";
-                                    $dbname = "mydb";
+                                <select  name="customers" id="custID">
+                                    <option value=0>All Customers</option>
+                                    <?php
+                                        $servername = "localhost";
+                                        $username = "root";
+                                        $password = "usbw";
+                                        $dbname = "mydb";
                     
-                                    $con = mysqli_connect($servername, $username, $password);
-                                    if(!$con){
-                                        die('Connection failed: ' . mysqli_error());
-                                    }
-
-                                    #$customerID = $_POST['customers'];
-                                    $id = $_SESSION['id'];
-                                    #echo $customerID . " , " . $id;
-
-                                    mysqli_select_db($con, "mydb.quote");
-                                    $query = "SELECT * from mydb.quote WHERE consultantID = " . $id . " group by customerID";
-		                            $customers = mysqli_query($con, $query); 
-                                
-                                    while($row = mysqli_fetch_array($customers)){
-                                        $query2 = "SELECT * from mydb.customer WHERE customerID = " . $row['customerID'];
-                                        $customerDetails = mysqli_query($con, $query2); 
-                                        while($Details = mysqli_fetch_array($customerDetails)){
-                                            echo "<option value=" . $row['customerID'] . ">ID: " . $row['customerID'] . " " . $Details['username'] . "</option>";
+                                        $con = mysqli_connect($servername, $username, $password);
+                                        if(!$con){
+                                            die('Connection failed: ' . mysqli_error());
                                         }
-                                    
-                                    }
-                                    $con->close();
-                                ?>
 
-                            </select>
-                            <br><br>
+                                        $id = $_SESSION['id'];
+
+                                        mysqli_select_db($con, "mydb.quote");
+                                        $query = "SELECT * from mydb.quote WHERE consultantID = " . $id . " group by customerID";
+		                                $customers = mysqli_query($con, $query); 
+                                
+                                        while($row = mysqli_fetch_array($customers)){
+                                            $query2 = "SELECT * from mydb.customer WHERE customerID = " . $row['customerID'];
+                                            $customerDetails = mysqli_query($con, $query2); 
+                                            while($Details = mysqli_fetch_array($customerDetails)){
+                                                echo "<option value=" . $row['customerID'] . ">ID: " . $row['customerID'] . " " . $Details['username'] . "</option>";
+                                            }
+                                    
+                                        }
+                                        $con->close();
+                                    ?>
+                                </select>
+                                <br><br>
+                                <input type='submit' value="Get Results" class="submit-btn" onClick="window.location.reload();"></input>
+                                <br><br>
+                            </form>
+                            <?php
+                                if(isset($_POST['customers'])){
+                                    $_SESSION['customer'] = $_POST['customers'];
+                                    #echo $_SESSION['customer']; #debug
+                                }
+                                else {
+                                    #echo "NOT SET"; #debug
+                                }
+                            ?>
                         </div>
                         <?php
                             $servername = "localhost";
@@ -84,46 +94,52 @@
                             }
     
                             $id = $_SESSION["id"];
-
+                            $custFilter = $_SESSION['customer'];
+                            #echo "<p>" . $custFilter . "</p>";  #DEBUG
                             mysqli_select_db($con, "mydb.quote");
 		                    $result = mysqli_query($con, "SELECT * FROM mydb.quote WHERE consultantID=" . $id); 
                             $count = 1;
                             while($row = mysqli_fetch_array($result)){
-                                
-                                if(empty($row['reply'])){
-                                    echo "<form method='post' id='replyForm'>";
-                                    echo "<button type='button' name='btn' class='collapsible'>Request " . $count . "</button>";
-                                    echo "<div class='content'>";
-                                    echo "<h4 name='custID'>Customer ID: " . $row['customerID'] . "</h4>";
-                                    echo "<h4 name='prodID'>Product ID: " . $row['productID'] . "</h4>";
-                                    echo "<h4>User Message:</h4>";
-                                    echo "<p>" . $row['userMessage'] . "</p><br>";
-                                    echo "<h4>Type your repsonse</h4>";
-                                    echo "<textarea name='newReply' id='my-textarea'  maxlength='150'></textarea>";
-                                    echo "<div id='my-textarea-remaining-chars'>150 characters remaining</div>";
-                                    echo "<input type='submit' name=" . $count . " onClick='window.location.reload()' value='Respond' class='submit-btn'></div><br><br>";
-                                    echo "</form>";
-                                    //Commit Variables to session
-                                    //create array of form data
-                                    $formData = array($row['customerID'], $row['productID']);
-                                    if(!isset($_SESSION['form' . $count])){
-                                        $_SESSION['form' . $count] = $formData;
-                                    }
-                                    else
-                                    {
-                                        $_SESSION['form' . $count] = $formData;
+                                #Either print all or print just a single customer
+                                if($custFilter == 0 or $row['customerID'] == $custFilter){ 
+                                    if(empty($row['reply'])){
+                                        #Create a form for the given user
+                                        echo "<form method='post' id='replyForm'>";
+                                        echo "<button type='button' name='btn' class='collapsible'>Request " . $count . "</button>";
+                                        echo "<div class='content'>";
+                                        echo "<h4 name='custID'>Customer ID: " . $row['customerID'] . "</h4>";
+                                        echo "<h4 name='prodID'>Product ID: " . $row['productID'] . "</h4>";
+                                        echo "<h4>User Message:</h4>";
+                                        echo "<p>" . $row['userMessage'] . "</p><br>";
+                                        echo "<h4>Type your repsonse</h4>";
+                                        echo "<textarea name='newReply' id='my-textarea'  maxlength='150'></textarea>";
+                                        echo "<div id='my-textarea-remaining-chars'>150 characters remaining</div>";
+                                        echo "<input type='submit' name=" . $count . " onClick='window.location.reload()' value='Respond' class='submit-btn'></div><br><br>";
+                                        echo "</form>";
+                                        //Commit Variables to session
+                                        //create array of form data
+                                        $formData = array($row['customerID'], $row['productID']);
+                                        if(!isset($_SESSION['form' . $count])){
+                                            $_SESSION['form' . $count] = $formData;
+                                        }
+                                        else
+                                        {
+                                            $_SESSION['form' . $count] = $formData;
+                                        }
+    
+                                    }else{
+                                        #No need for a form as the replying is already done
+                                        echo "<button type='button' class='collapsible'>Request " . $count . "</button>";
+                                        echo "<div class='content'>";
+                                        echo "<h4>Customer ID: " . $row['customerID'] . "</h4>";
+                                        echo "<h4>User Message:</h4>";
+                                        echo "<p>" . $row['userMessage'] . "</p><br>";
+                                        echo "<h4>Reply</h4>";
+                                        echo "<p>" . $row['reply'] . "</p></div><br><br>";
                                     }
 
-                                }else{
-                                    echo "<button type='button' class='collapsible'>Request " . $count . "</button>";
-                                    echo "<div class='content'>";
-                                    echo "<h4>Customer ID: " . $row['customerID'] . "</h4>";
-                                    echo "<h4>User Message:</h4>";
-                                    echo "<p>" . $row['userMessage'] . "</p><br>";
-                                    echo "<h4>Reply</h4>";
-                                    echo "<p>" . $row['reply'] . "</p></div><br><br>";
-                                }
-                                $count = $count + 1;
+                                    $count = $count + 1;
+                                }                             
                             }
 
                             //UPDATE quote SET reply = "hello there" WHERE customerID = 2 AND consultantID = 2 AND productID = 5
