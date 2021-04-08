@@ -89,9 +89,6 @@
                                 $count = $count + 1;
                             }
 
-                            //UPDATE quote SET reply = "hello there" WHERE customerID = 2 AND consultantID = 2 AND productID = 5
-                            
-
                             mysqli_select_db($con, "mydb.quote");
 
                             $formID;
@@ -100,46 +97,18 @@
                                 if($content == "Respond"){
                                     $formID = $name;
                                 }
-                                #echo "The HTML name: $name <br>";
-                                #echo "The content of it: $content <br>";
                             }
 
-                            //echo $formID . "<br>";  #DEBUG
-
                             $data = $_SESSION['form' . $formID];
-                            //echo $data[0] . " , " . $data[1] . "<br>";  #DEBUG
-                            //Check if text box has something in it
-                            //if yes update table
+
                             $replyMess = $_POST['newReply'];
-                            //echo $replyMess;  #DEBUG
-                            //if(!strlen(trim($replyMess))){
-                                #echo $replyMess;
-                                #echo $data[0] . " , " . $data[1] . "<br>";
-                                $sql = $con->prepare("UPDATE quote SET reply = ? WHERE customerID = ? AND consultantID = ? AND productID = ?");
-                                $sql->bind_param("siii", $replyMess, $data[0], $id, $data[1]);
-                                $sql->execute();
+                            $sql = $con->prepare("UPDATE quote SET reply = ? WHERE customerID = ? AND consultantID = ? AND productID = ?");
+                            $sql->bind_param("siii", $replyMess, $data[0], $id, $data[1]);
+                            $sql->execute();
 
-                                $sql->close();
-                            //}else{
-                                //echo "<p>Please type a reply into the box before submitting</p>";
-                            //}
-
+                            $sql->close();
                             $con->close();
                         ?>
-
-                        <!--
-                        <button type="button" class="collapsible">Request 1</button>
-                        <div class="content">
-                            <h4>Customer ID: PHP NAME</h4>
-                            <h4>PHP NAME Request:</h4>
-                            <p>Hello, I would like to have more information on how this product works and we can arange a delivery</p><br>
-
-                            <h4>Type your repsonse</h4>
-                            
-                            <textarea id="my-textarea"  maxlength="150"></textarea>
-                            <div id="my-textarea-remaining-chars">150 characters remaining</div>
-                            <input onClick="window.location.reload()" type="submit" value="Response" class="submit-btn">
-                            -->
                     </div>
                         
                 </div>

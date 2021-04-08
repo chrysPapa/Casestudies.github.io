@@ -41,9 +41,7 @@
 		        $result = mysqli_query($con, "SELECT * FROM mydb.customer"); 
 		        while($row = mysqli_fetch_array($result)){
                     if(strcmp($row['username'], $username) == 0){   //If you find the customer
-                        echo $row['username'] . " " .  $row['email'] . " " . $row['password'] . " " . $row['customerID'];	#DEBUG
                         if(strcmp($row['password'], $password) == 0){  
-                            //http://localhost:8080/customer.php
                             $id = $row['customerID'];
                             $uName = $row['username'];
                             $_SESSION['id'] = $id;
@@ -53,9 +51,8 @@
                         }
                         else{
                             //password wrong
+                            echo "<p>Password incorrect, please try again</p>";
                         }
-                    } else{
-                        //Not a customer
                     }
 		        }
 
@@ -63,21 +60,19 @@
                 mysqli_select_db($con, "mydb.consultant");
 		        $result = mysqli_query($con, "SELECT * FROM mydb.consultant"); 
 		        while($row = mysqli_fetch_array($result)){
-                    if(strcmp($row['username'], $username) == 0){   //If you find the customer
-                        echo $row['username'] . " " .  $row['email'] . " " . $row['password'];	#DEBUG
+                    if(strcmp($row['username'], $username) == 0){   //If you find the consultant  
                         if(strcmp($row['password'], $password) == 0){  
                             $id = $row['consultantID'];
                             $uName = $row['username'];
                             $_SESSION['id'] = $id;
                             $_SESSION['username'] = $uName;
-                            header("Location: http://localhost:8080/consultant.php", true, 301);
+                            header("Location: http://localhost:8080/consultant.php", true, 301);    //redirect
                             exit();
                         }
                         else{
                             //password wrong
+                            echo "<p>Password incorrect, please try again</p>";
                         }
-                    } else{
-                        //Not a customer
                     }
 		        }
 
@@ -85,10 +80,6 @@
                 $con->close();
 
             ?>
-            <!--<p style="float: left; width: 130px"><button type="submit" class="submit-btn" onclick="window.open('customer.php','_blank','resizable=yes')">Customer</button></p>-->
-            <!--<p style ="float: none; width: 130px"></p><button type="submit" class="submit-btn" onclick="window.open('consultant.html','_blank','resizable=yes')">Consultant</button>-->
-            <!--<br>-->
-            <!--<button type="submit" class="submit-btn" onclick="window.open('manager.html','_blank','resizable=yes')">Manager</button></p>-->
         </form>
     </div>
 </body>

@@ -97,8 +97,7 @@
             //get product ID
             $productID = $_POST['products'];
 
-            //echo $consultant . ", ". $id . ", ". $productID;  #DEGBUG
-
+            // Preparing the sql allows you to enter variables into the query easily
             $sql = $con->prepare("INSERT INTO `quote` (`customerID`, `consultantID`, `productID`, `userMessage`) 
                     VALUES (?, ? ,?, ?)");
             $sql->bind_param("iiis", $id, $consultant, $productID, $userMessage);
