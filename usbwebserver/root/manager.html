@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <div class="hero">
+            <h1 class="Title">ABC Energy Website</h1>
+            <a class="button" href="#" onclick="close_window(); return false">
+                <img src="logout.png">
+                <div class="logout">LOGOUT</div>
+            </a>
+            <ul class="nav-inline">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="manager_Consultants.html">Consultants</a></li>
+                <li><a href="manager_Quotes.html">Quotes</a></li>
+            </ul>
+            <br><br>
+            <div align = "center"><br>
+                <h2 style="color: aliceblue;">Welcome to the Manager page</h2><br><br><br>
+                <p style="color:aliceblue">Here you can see our prodacts request quotes view your reuqsted quotes and view the response from our Consultant team</p><br>
+                <p style="color: aliceblue;">Use our navigation bar to change between our pages or use the buttons bellow</p><br><br><br><br>
+                <button style="width: 170px;" type="submit" class="submit-btn" onclick="window.open('manager_Consultants.html','_self','resizable=yes')">Customer Quotes</button> <br>
+                <button style="width: 170px;" type="submit" class="submit-btn" onclick="window.open('manager_Consultants.html','_self','resizable=yes')">Customer Quotes</button> <br>
+            </div>
+
+       
+        </div> 
+
+    </body>
+
+    <script>
+        function close_window() {
+            if (confirm("Are you sure you want to Exit?")) {
+            close();
+            }
+        }
+    </script>
+
+
+
+
+</html>
